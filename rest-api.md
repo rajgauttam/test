@@ -11,7 +11,7 @@
 		- [Ban a user for a contest](#ban-a-user-for-a-contest)
 		- [Unban a user for a contest](#unban-a-user-for-a-contest)
 		- [Promote a user to admin for a contest](#promote-a-user-to-admin-for-a-contest)
-		- [rend roll admin from a user for a contest](#rend-roll-admin-from-a-user-for-a-contest)
+		- [Rend roll admin from a user for a contest](#rend-roll-admin-from-a-user-for-a-contest)
 		- [Update score for a user who is a member of given contest](#update-score-for-a-user-who-is-a-member-of-given-contest)
 	- [Apis for members of a contest](#apis-for-members-of-a-contest)
 		- [Get list of members for a specific contest ](#get-list-of-members-for-a-specific-contest)
@@ -67,6 +67,9 @@ Success:
 	Location: /api/contests/:newContestId/
 
 
+### Delete a contest
+```DELETE /api/contests/:contestId``` 
+
 
 ### Update a specific contest
 ```PUT /api/contests/:contestId/``` 
@@ -92,14 +95,28 @@ Response:
 Success: 
 	Location: /api/contests/published/:newContestId/
 	
+	
 ### Delete a publish contest
 
 ```DELETE /api/contests/published/:contestId/``` 
+
+### Feature a contest
+```POST /api/contests/featured/``` 
 
 Request:
 ```
 {"contestId": "contest1"}
 ```
+
+Response:
+Success: 
+	Location: /api/contests/featured/:newContestId/
+	
+	
+### Defeature a contest
+
+```DELETE /api/contests/featured/:contestId/``` 
+
 	
 ### Ban a user for a contest
 ```POST /api/contests/:contestId/banned/``` 
@@ -126,7 +143,7 @@ Request:
 {"userId": "userId1"}
 ```
 	
-### rend roll admin from a user for a contest
+### Rend roll admin from a user for a contest
 ```DELETE /api/contests/:contestId/admins/:userId/``` 
 	
 ### Update score for a user who is a member of given contest
@@ -168,6 +185,21 @@ Response:
 }
 ```
 
+### Get admins for a contest 
+```GET /api/contests/:contestId/admins/``` 
+
+Optional parameters:
+page : page number to fetch
+size : number of elements per page
+
+Response:
+```
+{
+	user: [{"displayName": "displayName1" , "userEmail": "userEmail1"},
+			{"displayName": "displayName2" , "userEmail": "userEmail2"}],
+}
+```
+
 
 ### Join a user in a contest
 ```POST /api/contests/:contestId/members/``` 
@@ -180,6 +212,9 @@ Response:
 Success: 
 	Location: /api/contests/:contestId/newMemberId/
 
+
+### Leave a user from a contest
+```DELETE /api/contests/:contestId/members/``` 
 
 
 ## Apis for contest documentation
@@ -208,6 +243,7 @@ Response:
 {"name": "document1" , "file": "document1"}
 ```
 Returns status code *404* if the contest with contestId doesn't exists are not accessible
+
 
 
 ### Create a new document for specific contest
