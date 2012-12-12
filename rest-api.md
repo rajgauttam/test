@@ -82,6 +82,21 @@ Response:
 {"name": "contest1" , "title": "contest1"}
 ```
 	
+	
+### Get All contests, a user participated
+```GET /api/contests/users/:userId``` 
+
+Optional parameters:
+page : page number to fetch
+size : number of elements per page
+
+Response:
+```
+{
+	content: [{"name": "contest1" , "title": "contest1"},
+			{"name": "contest2" , "title": "contest2"}],
+}
+```
 
 ### Publish a contest
 ```POST /api/contests/published/``` 
