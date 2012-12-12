@@ -7,22 +7,25 @@
 		- [Create a new contest](#create-a-new-contest)
 		- [Update a specific contest](#update-a-specific-contest)
 		- [Publish a contest](#publish-a-contest)
-        - [Delete a publish contest](#delete-a-publish-contest)
-    - [Apis for members of a contest](#apis-for-members-of-a-contest)
-        - [Get list of members for a specific contest](#get-list-of-members-for-a-specific-contest)
-        - [Get leaderboard](#get-leaderboard)
-        - [Join a user in a contest](#join-a-user-in-a-contest)
-    - [Apis for contest documentation](#apis-for-contest-documentation)
-        - [Get list of documents for a specific contest](#get-list-of-documents-for-a-specific-contest)
-        - [Get details about a specific document](#get-details-about-a-specific-document)
-        - [Create a new document for specific contest](#create-a-new-document-for-specific-contest)
-    - [Apis for contest responses](#apis-for-contest-responses)
-        - [Get list of responses for a specific contest](#get-list-of-responses-for-a-specific-contest)
-        - [Get details about a specific response](#get-details-about-a-specific-response)
-        - [Create a new response for specific contest](#create-a-new-response-for-specific-contest)
-     
-     
-        
+		- [Delete a publish contest](#delete-a-publish-contest)
+		- [Ban a user for a contest](#ban-a-user-for-a-contest)
+		- [Unban a user for a contest](#unban-a-user-for-a-contest)
+		- [Promote a user to admin for a contest](#promote-a-user-to-admin-for-a-contest)
+		- [rend roll admin from a user for a contest](#rend-roll-admin-from-a-user-for-a-contest)
+		- [Update score for a user who is a member of given contest](#update-score-for-a-user-who-is-a-member-of-given-contest)
+	- [Apis for members of a contest](#apis-for-members-of-a-contest)
+		- [Get list of members for a specific contest ](#get-list-of-members-for-a-specific-contest)
+		- [Get leaderboard ](#get-leaderboard)
+		- [Join a user in a contest](#join-a-user-in-a-contest)
+	- [Apis for contest documentation](#apis-for-contest-documentation)
+		- [Get list of documents for a specific contest](#get-list-of-documents-for-a-specific-contest)
+		- [Get details about a specific document](#get-details-about-a-specific-document)
+		- [Create a new document for specific contest](#create-a-new-document-for-specific-contest)
+	- [Apis for contest responses](#apis-for-contest-responses)
+		- [Get list of responses for a specific contest](#get-list-of-responses-for-a-specific-contest)
+		- [Get details about a specific response](#get-details-about-a-specific-response)
+		- [Create a new response for specific contest](#create-a-new-response-for-specific-contest)
+
 # REST api documentation
 
 ## Apis for contest adminstration
@@ -234,7 +237,7 @@ Response:
 {
 	content: [{"name": "response1" , "file": "file1"},
 			{"name": "response2" , "file": "file2"}],
-}
+} 
 ```
 
 
@@ -255,8 +258,115 @@ Request:
 ```
 {"name": "response1" ,"file": "file1"}
 ```
+
 Response:
 Success: 
 	Location: /api/contests/:contestId/responses/:newResponseId/
+
+
+
+## Apis for users
+
+
+### Get list of users
+```GET /api/users/``` 
+
+Optional parameters:
+page : page number to fetch
+size : number of elements per page
+
+Response:
+```
+{
+	user: [{"displayName": "displayName1" , "userEmail": "userEmail1"},
+			{"displayName": "displayName2" , "userEmail": "userEmail2"}],
+}
+```
+
+
+### Get details about a specific user
+```GET /api/users/:userId/``` 
+
+Response:
+```
+{"displayName": "displayName1" , "userEmail": "userEmail1"}
+```
+Returns status code *404* if the user with userId doesn't exists are not accessible
+
+
+
+### Get list of recent users
+```GET /api/users/recent/``` 
+
+Optional parameters:
+page : page number to fetch
+size : number of elements per page
+
+Response:
+```
+{
+	user: [{"displayName": "displayName1" , "userEmail": "userEmail1"},
+			{"displayName": "displayName2" , "userEmail": "userEmail2"}],
+}
+```
+
+
+### Get list of followers for a specific user
+```GET /api/users/:userId/followers/``` 
+
+Response:
+```
+user: [{"displayName": "displayName1" , "userEmail": "userEmail1"},
+			{"displayName": "displayName2" , "userEmail": "userEmail2"}],
+```
+
+
+### Get list of followers for a current logged in user
+```GET /api/users/me/followers/``` 
+
+Response:
+```
+user: [{"displayName": "displayName1" , "userEmail": "userEmail1"},
+			{"displayName": "displayName2" , "userEmail": "userEmail2"}],
+```
+
+
+### Get list of followings for a specific user
+```GET /api/users/:userId/following/``` 
+
+Response:
+```
+user: [{"displayName": "displayName1" , "userEmail": "userEmail1"},
+			{"displayName": "displayName2" , "userEmail": "userEmail2"}],
+```
+
+
+### Get list of followings for a current logged in user
+```GET /api/users/me/following/``` 
+
+Response:
+```
+user: [{"displayName": "displayName1" , "userEmail": "userEmail1"},
+			{"displayName": "displayName2" , "userEmail": "userEmail2"}],
+```
+
+
+### Follow a user
+```POST /api/users/following/``` 
+
+Request:
+```{"userId": "userId1" }```
+
+
+### Unfollow a user
+```DELETE /api/users/me/following/:userId``` 
+
+
+
+### Send a mail to user
+```POST /api/users/:userId/messages``` 
+
+Request:
+```{"subject": "subject","content":"content" }```
 
 
