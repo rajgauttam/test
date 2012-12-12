@@ -154,6 +154,7 @@ Request:
 {"predictionErr": "predictionErr"}
 ```
 
+
 ## Apis for members of a contest
 
 ### Get list of members for a specific contest 
@@ -217,6 +218,15 @@ Success:
 ```DELETE /api/contests/:contestId/members/``` 
 
 
+### Send mail to all member of a specific contest
+```POST /api/contests/:contestId/members/message``` 
+
+Request:
+```
+{"subject": "subject" , "content": "content"}
+```
+
+
 ## Apis for contest documentation
 
 ### Get list of documents for a specific contest
@@ -250,6 +260,7 @@ Returns status code *404* if the contest with contestId doesn't exists are not a
 ```POST /api/contests/:contestId/documents/``` 
 
 Request:
+
 ```
 {"name": "document1" , "title": "document1"}
 ```
@@ -257,6 +268,16 @@ Response:
 Success: 
 	Location: /api/contests/:contestId/documents/:newContestId/
 
+
+### Update a document with upload a file for a specific contest
+```POST /api/contests/:contestId/documents/:documentId/``` 
+
+Response:
+
+```
+{"id":"contestDocument1"}
+```
+upload a file using form to given action url.
 
 
 ## Apis for contest responses
@@ -298,6 +319,18 @@ Request:
 Response:
 Success: 
 	Location: /api/contests/:contestId/responses/:newResponseId/
+
+
+### Update a response with upload a file for a specific contest
+```POST /api/contests/:contestId/reponses/:responseId/``` 
+
+Response:
+
+```
+{"id":"contestResponse1"}
+```
+upload a file using form to given action url.
+
 
 
 
