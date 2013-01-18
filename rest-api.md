@@ -112,43 +112,42 @@ Request:
 
 Other mandatory json request fields
 ```
- category -string
- function -string
- description -string
- startDate -date
- subdate -date
- resDate -date
- status -string
+ category                -string
+ function                -string
+ description             -string
+ startDate               -date
+ subdate                 -date
+ resDate                 -date
+ status                  -string
  ```
  
 Optional json request fields
  ```
- firstPrizeNo           -int
+ firstPrizeNo            -int
  firstPrizeShare         -int
- secondPrizeNo        -int
- secondPrizeShare       -int
- thirdPrizeNo          -int
- thirdPrizeShare        -int
- guidelines       -string
- criteria         -string
- prizes         -string
- others          -string
- level          -string
- vertical          -string
- datatype         -string
+ secondPrizeNo           -int
+ secondPrizeShare        -int
+ thirdPrizeNo            -int
+ thirdPrizeShare         -int
+ guidelines              -string
+ criteria                -string
+ prizes                  -string
+ others                  -string
+ level                   -string
+ vertical                -string
+ datatype                -string
  featured (default value is false)
  published (default value is false)
  upcomingMessage (default value is blank string)
  prizeDescJson (default value is {}) 
- hasLeaderboard         -boolean
- autoEvaluate           -boolean
- actualScoresDoc       -long
- notiyDefault enum (NO_EMAIL | WEEKLY| DAILY| ALL)
- evaluationMethod enum (RMSE|RMSLE|LOG_ERROR|ACCURACY|MIS_CLASSIFICATION_ERROR|CLASSIFICATION_ACCURACY)
+ hasLeaderboard          -boolean
+ autoEvaluate            -boolean
+ actualScoresDoc         -long
+ notiyDefault            -enum (NO_EMAIL | WEEKLY| DAILY| ALL)
+ evaluationMethod        -enum (RMSE|RMSLE|LOG_ERROR|ACCURACY|MIS_CLASSIFICATION_ERROR|CLASSIFICATION_ACCURACY)
  ```
 
 Response:
-    
     ```
     Success: 
 	Location: /api/contests/:newContestId
