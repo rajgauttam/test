@@ -180,7 +180,8 @@ Response:
 Optional parameters:
 ```
 page : page number to fetch
-size : number of elements per page```
+size : number of elements per page
+```
 
 Response:
 ```
