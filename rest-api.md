@@ -78,8 +78,10 @@ Response:
 ```GET /api/contests/search?keyword=<search keyword>``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+```
+page : page number to fetch
+size : number of elements per page
+```
 
 Response:
 ```
@@ -109,16 +111,19 @@ Request:
 ```
 
 Other mandatory json request fields
-```category -string
+```
+ category -string
  function -string
  description -string
  startDate -date
  subdate -date
  resDate -date
- status -string```
+ status -string
+ ```
  
 Optional json request fields
- ```firstPrizeNo           -int
+ ```
+ firstPrizeNo           -int
  firstPrizeShare         -int
  secondPrizeNo        -int
  secondPrizeShare       -int
@@ -139,12 +144,15 @@ Optional json request fields
  autoEvaluate           -boolean
  actualScoresDoc       -long
  notiyDefault enum (NO_EMAIL | WEEKLY| DAILY| ALL)
- evaluationMethod enum (RMSE|RMSLE|LOG_ERROR|ACCURACY|MIS_CLASSIFICATION_ERROR|CLASSIFICATION_ACCURACY)```
+ evaluationMethod enum (RMSE|RMSLE|LOG_ERROR|ACCURACY|MIS_CLASSIFICATION_ERROR|CLASSIFICATION_ACCURACY)
+ ```
 
 Response:
     
-    ```Success: 
-	Location: /api/contests/:newContestId```
+    ```
+    Success: 
+	Location: /api/contests/:newContestId
+	```
 
 
 ### Delete a contest
