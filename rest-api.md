@@ -268,8 +268,10 @@ Request:
 ```GET /api/contests/:contestId/members``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+   ```
+   page : page number to fetch
+   size : number of elements per page
+   ```
 
 Response:
 ```
@@ -292,8 +294,10 @@ Response:
 ```GET /api/contests/:contestId/leaderboard``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+   ```
+   page : page number to fetch
+   size : number of elements per page
+   ```
 
 Response:
 ```
@@ -307,8 +311,10 @@ Response:
 ```GET /api/contests/:contestId/admins``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+    ```
+    page : page number to fetch
+    size : number of elements per page
+    ```
 
 Response:
 ```
@@ -328,13 +334,16 @@ Request:
 ```
 
 Optional Json fields-
- ```userTitle -string(default empty)
- comments  -string(default empty)```
+   ```
+   userTitle -string(default empty)
+   comments  -string(default empty)
+   ```
 
 Response:
-
+    ``` 
     Success: 
 	Location: /api/contests/:contestId/newMemberId
+	```
 
 
 ### Leave a user from a contest
@@ -356,8 +365,10 @@ Request:
 ```GET /api/contests/:conestId/documents``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+    ```
+    page : page number to fetch
+    size : number of elements per page
+    ```
 
 Response:
 ```
@@ -384,30 +395,37 @@ Returns status code *404* if the contest with contestId doesn't exists are not a
 
 Request:
 
-```Post mandatory form data properties
-  name -string```
+   ```
+   Post mandatory form data properties
+   name -string
+   ```
 
 optional form data properties
- ```multipartFile  -file using form upload 
- description -string
- featured  -numeric(short)```
+    ```
+    multipartFile  -file using form upload 
+    description    -string
+    featured       -numeric(short)
+    ```
 
 Response:
-Success: 
+    ```
+    Success: 
 	Location: /api/contests/:contestId/documents/:newContestId
-
+    ```
 
 ### Update a document with upload a file for a specific contest
 ```POST /api/contests/:contestId/documents/:documentId``` 
 
 form data properties
- ```multipartFile  -file using form upload```
+     ```
+     multipartFile  -file using form upload
+     ```
 
 Response:
 
-```
-{"id":contestDocument1}
-```
+     ```
+     {"id":contestDocument1}
+     ```
 upload a file using form to given action url.
 
 
@@ -417,8 +435,10 @@ upload a file using form to given action url.
 ```GET /api/contests/:conestId/responses``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+    ```
+    page : page number to fetch
+    size : number of elements per page
+    ```
 
 Response:
 ```
@@ -448,9 +468,10 @@ Request:
 ```
 
 Response:
-    
+    ```
     Success: 
 	Location: /api/contests/:contestId/responses/:newResponseId
+	```
 
 
 
@@ -458,7 +479,9 @@ Response:
 ```POST /api/contests/:contestId/reponses/:responseId``` 
 
 form data properties
- ```multipartFile  -file using form upload```
+     ```
+     multipartFile  -file using form upload
+     ```
 
 Response:
 
@@ -477,8 +500,10 @@ upload a file using form to given action url.
 ```GET /api/users``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+     ```
+     page : page number to fetch
+     size : number of elements per page
+     ```
 
 Response:
 ```
@@ -493,8 +518,10 @@ Response:
 ```GET /api/users/search?keyword=<search keyword>``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+     ```
+     page : page number to fetch
+     size : number of elements per page
+     ```
 
 Response:
 ```
@@ -526,8 +553,10 @@ Response:
 ```GET /api/users/recent``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+    ```
+    page : page number to fetch
+    size : number of elements per page
+    ```
 
 Response:
 ```
@@ -546,18 +575,26 @@ Request:
 ```
 
 Other mandatory json request fields
- ```username -string
- password -string
- email -string```
+    ```
+    username     -string
+    password -string
+    email -string
+    ```
  
 Optional json request fields
- ```fullName -string```
+    ```
+    fullName -string
+    ```
 
 Response:
-    ```{id:newUserId}```
+    ```
+    {id:newUserId}
+    ```
    
- Success: 
-      ```Location: /api/users/:newUserId```
+      Success: 
+      ```
+      Location: /api/users/:newUserId
+      ```
 
 ### Add a role to user
 ```POST /api/users/:userId/roles``` 
@@ -602,11 +639,15 @@ Request:
 ```
 
 Other mandatory json request fields
- ```newPassword -string```
+    ```
+    newPassword    -string
+    ```
  
 Optional json request fields
- ```password -string
-    resetToken -string```
+    ```
+    password      -string
+    resetToken    -string
+    ```
 
 Response:
     ```{id:userId,username:"raj"}```
@@ -616,8 +657,10 @@ Response:
 ```GET /api/users/:userId/followers``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+    ```
+    page : page number to fetch
+    size : number of elements per page
+    ```
 
 Response:
 ```
@@ -630,8 +673,10 @@ user: [{"fullName": "displayName1" , "email": "userEmail1"},
 ```GET /api/users/me/followers``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+     ```
+     page : page number to fetch
+     size : number of elements per page
+     ```
 
 Response:
 ```
@@ -644,8 +689,10 @@ user: [{"fullName": "displayName1" , "email": "userEmail1"},
 ```GET /api/users/:userId/following``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+    ```
+    page : page number to fetch
+    size : number of elements per page
+    ```
 
 Response:
 ```
@@ -658,8 +705,10 @@ user: [{"fullName": "displayName1" , "email": "userEmail1"},
 ```GET /api/users/me/following``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+     ```
+     page : page number to fetch
+     size : number of elements per page
+     ```
 
 Response:
 ```
@@ -685,8 +734,10 @@ Request:
 ```GET /api/users/:userId/common/followers/:userId2``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+    ```
+    page : page number to fetch
+    size : number of elements per page
+    ```
 
 Response:
 ```
@@ -699,8 +750,10 @@ user: [{"fullName": "displayName1" , "email": "userEmail1"},
 ```GET /api/users/me/common/userId/followers``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+     ```
+     page : page number to fetch
+     size : number of elements per page
+     ```
 
 Response:
 ```
@@ -723,8 +776,10 @@ Request:
 ```GET /api/users/:userId/documents``` 
 
 Optional parameters:
-```page : page number to fetch
-size : number of elements per page```
+    ```
+    page : page number to fetch
+    size : number of elements per page
+    ```
 
 Response:
 ```
@@ -751,12 +806,12 @@ Returns status code *404* if the contest with contestId doesn't exists are not a
 
 Request:
 
-```
-?userDocumentDatas[0].multiPartFile=@/home/raj/Downloads/logo2.png 
-      &userDocumentDatas[0].file=abc 
-      &userDocumentDatas[0].name=file1 
-      &userDocumentDatas[0].description=filetest1 
-```
+   ```
+   ?userDocumentDatas[0].multiPartFile=@/home/raj/Downloads/logo2.png 
+         &userDocumentDatas[0].file=abc 
+         &userDocumentDatas[0].name=file1 
+         &userDocumentDatas[0].description=filetest1 
+    ```
 post data using form to given action url.
 
 Response:
@@ -770,12 +825,12 @@ Response:
 
 Request:
 
-```
-?multiPartFile=@/home/raj/Downloads/logo2.png 
-      &file=abc 
-      &name=file1 
-      &description=filetest1 
-```
+    ```
+    ?multiPartFile=@/home/raj/Downloads/logo2.png 
+         &file=abc 
+         &name=file1 
+         &description=filetest1 
+    ```
 post data using form to given action url.
 
 Response:
@@ -798,8 +853,10 @@ Response:
 
 Request:
 
-```Form upload a file with property
- file -(file upload)```
+    ```
+    Form upload a file with property
+    file   -(file upload)
+    ```
 
 Response:
 
@@ -838,12 +895,13 @@ Response:
 
 
 ### Get list of forum topic
-```GET /api/forums/topics/``` 
+```GET /api/forums/topics``` 
 
 Optional parameters:
-page : page number to fetch
-size : number of elements per page
-
+    ```
+    page : page number to fetch
+    size : number of elements per page
+    ```
 Response:
 ```
 {
@@ -854,7 +912,7 @@ Response:
 
 
 ### Get details about a specific forum topic
-```GET /api/forums/topics/:topicId/``` 
+```GET /api/forums/topics/:topicId``` 
 
 Response:
 ```
@@ -864,7 +922,7 @@ Returns status code *404* if the topic with topicId doesn't exists are not acces
 
 
 ### Create a new forum topic
-```POST /api/forums/topics/``` 
+```POST /api/forums/topics``` 
 
 Request:
 ```
@@ -872,25 +930,28 @@ Request:
 ```
 
 Response:
-
-    Success: 
-	Location: /api/forums/topics/:newTopicId/
-	```
+     ```
 	{"id": "newTopicId" }
 	```
-	
+    Success: 
+	```
+	Location: /api/forums/topics/:newTopicId
+	```
+		
 	
 ### Post a forum topic
-```POST /api/forums/topics/:topicId/posts/``` 
+```POST /api/forums/topics/:topicId/posts``` 
 
 Request:
 ```{"title": "title1" , "description": "description1"}```
 
 Response:
-
-   Success: 
-   Location: /api/forums/topics/:topicId/posts/:newPostId/	
-	```
+    ```
 	{"id": "newPostId" }
 	```
+	
+   Success: 
+   ```
+   Location: /api/forums/topics/:topicId/posts/:newPostId
+   ```
 	
